@@ -1,0 +1,30 @@
+DEBUG   2017-07-13 13:02:08,361 [AWT-EventQueue-0] service.MyLogger  - this is a debug log message
+INFO    2017-07-13 13:02:08,361 [AWT-EventQueue-0] service.MyLogger  - this is a information log message
+WARN    2017-07-13 13:02:08,361 [AWT-EventQueue-0] service.MyLogger  - this is a warning log message
+INFO    2017-07-13 13:02:08,361 [AWT-EventQueue-0] forms_pos.Main  - this is a information log message
+INFO    2017-07-13 13:02:08,361 [AWT-EventQueue-0] service.MyLogger  - mylogger
+DEBUG   2017-07-13 13:14:27,634 [AWT-EventQueue-0] service.MyLogger  - this is a debug log message
+INFO    2017-07-13 13:14:27,634 [AWT-EventQueue-0] service.MyLogger  - this is a information log message
+WARN    2017-07-13 13:14:27,634 [AWT-EventQueue-0] service.MyLogger  - this is a warning log message
+DEBUG   2017-07-13 13:17:05,661 [AWT-EventQueue-0] service.MyLogger  - this is a debug log message
+INFO    2017-07-13 13:17:05,661 [AWT-EventQueue-0] service.MyLogger  - this is a information log message
+WARN    2017-07-13 13:17:05,677 [AWT-EventQueue-0] service.MyLogger  - this is a warning log message
+DEBUG   2017-07-13 13:17:16,550 [AWT-EventQueue-0] service.MyLogger  - this is a debug log message
+INFO    2017-07-13 13:17:16,550 [AWT-EventQueue-0] service.MyLogger  - this is a information log message
+WARN    2017-07-13 13:17:16,550 [AWT-EventQueue-0] service.MyLogger  - this is a warning log message
+INFO    2017-07-13 13:17:16,644 [AWT-EventQueue-0] service.MyLogger  - mylogger
+ERROR   2017-07-13 13:17:20,872 [AWT-EventQueue-0] forms_pos.Main  - Podatak u tabeli je izmenjen.null
+INFO    2017-07-13 13:17:20,872 [AWT-EventQueue-0] forms_pos.Main  - this is a information log message
+INFO    2017-07-13 13:17:20,872 [AWT-EventQueue-0] service.MyLogger  - Podatak u tabeli je izmenjen.
+INFO    2017-07-13 13:17:20,872 [AWT-EventQueue-0] forms_pos.Main  - Podatak u tabeli je izmenjen.null
+DEBUG   2017-07-13 13:19:42,941 [AWT-EventQueue-0] service.MyLogger  - this is a debug log message
+INFO    2017-07-13 13:19:42,941 [AWT-EventQueue-0] service.MyLogger  - this is a information log message
+WARN    2017-07-13 13:19:42,941 [AWT-EventQueue-0] service.MyLogger  - this is a warning log message
+DEBUG   2017-07-13 13:19:54,766 [AWT-EventQueue-0] service.MyLogger  - this is a debug log message
+INFO    2017-07-13 13:19:54,766 [AWT-EventQueue-0] service.MyLogger  - this is a information log message
+WARN    2017-07-13 13:19:54,766 [AWT-EventQueue-0] service.MyLogger  - this is a warning log message
+INFO    2017-07-13 13:19:54,859 [AWT-EventQueue-0] service.MyLogger  - mylogger
+ERROR   2017-07-13 13:20:04,391 [AWT-EventQueue-0] forms_pos.Main  - Podatak u tabeli je izmenjen.null
+INFO    2017-07-13 13:20:04,391 [AWT-EventQueue-0] forms_pos.Main  - this is a information log message
+INFO    2017-07-13 13:20:04,391 [AWT-EventQueue-0] service.MyLogger  - Podatak u tabeli je izmenjen.
+INFO    2017-07-13 13:20:04,407 [AWT-EventQueue-0] forms_pos.Main  - Podatak u tabeli je izmenjen.null

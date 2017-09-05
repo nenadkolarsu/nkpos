@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ptt_brojevi" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eb81f0d6-5509-4bff-bd7c-a4dc2de6c39e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     ptt_brojevi.`id` AS ptt_brojevi_id,
+     ptt_brojevi.`sifra` AS ptt_brojevi_sifra,
+     ptt_brojevi.`naziv` AS ptt_brojevi_naziv,
+     ptt_brojevi.`drzava_id` AS ptt_brojevi_drzava_id,
+     ptt_brojevi.`drzava_sifra` AS ptt_brojevi_drzava_sifra,
+     ptt_brojevi.`drzava` AS ptt_brojevi_drzava,
+     ptt_brojevi.`datum_vreme` AS ptt_brojevi_datum_vreme,
+     ptt_brojevi.`aktivan` AS ptt_brojevi_aktivan
+FROM
+     `ptt_brojevi` ptt_brojevi]]>
+	</queryString>
+	<field name="ptt_brojevi_id" class="java.lang.Integer"/>
+	<field name="ptt_brojevi_sifra" class="java.lang.String"/>
+	<field name="ptt_brojevi_naziv" class="java.lang.String"/>
+	<field name="ptt_brojevi_drzava_id" class="java.lang.Integer"/>
+	<field name="ptt_brojevi_drzava_sifra" class="java.lang.Integer"/>
+	<field name="ptt_brojevi_drzava" class="java.lang.String"/>
+	<field name="ptt_brojevi_aktivan" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="e4aef19f-5083-4267-bc6d-5d6fae35e5e7"/>
+				<imageExpression><![CDATA["c:\\gui\\images\\leaf_banner_violet.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="75ee8464-b1e6-40c5-841f-52deaf421b09"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Ptt brojevi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="46" width="200" height="22" uuid="4b7e4379-c5d7-489d-a6a3-49890184ba65"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Ptt brojevi]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="b1a767fd-e8ba-4b15-bb8f-fa0cea36c7bf"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="79" height="15" uuid="2caa6410-8062-411c-b2ba-2fb0b740999f"/>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="79" y="19" width="79" height="15" uuid="74c6d022-fd35-411c-93af-3d1d92a748f1"/>
+				<text><![CDATA[Šifra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="158" y="19" width="79" height="15" uuid="4903a61b-1da0-482b-8956-026b2aafb4ab"/>
+				<text><![CDATA[Naziv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="237" y="19" width="79" height="15" uuid="a24139eb-a873-48dd-9767-c72cb2b88be9"/>
+				<text><![CDATA[drzava_id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="316" y="19" width="79" height="15" uuid="010e2a2b-cecb-42b5-92e0-a494ef21d7ad"/>
+				<text><![CDATA[drzava_sifra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="395" y="19" width="79" height="15" uuid="65591ba6-03af-4da4-93bc-408977502391"/>
+				<text><![CDATA[drzava]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="474" y="19" width="79" height="15" uuid="83aaa22c-97dc-4352-bda7-e8133d67a305"/>
+				<text><![CDATA[Aktivan]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="053a4d1d-aa43-49cc-98cf-fd2170bd0680"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="79" height="15" uuid="6abf107e-c7b9-4c67-bf4e-172e58d6da00"/>
+				<textFieldExpression><![CDATA[$F{ptt_brojevi_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="79" y="0" width="79" height="15" uuid="2756f6d2-f58d-4936-ae21-77fa230bc006"/>
+				<textElement>
+					<font pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ptt_brojevi_sifra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="158" y="0" width="79" height="15" uuid="901237da-5973-477b-b0b5-dffa254c3c1e"/>
+				<textElement>
+					<font pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ptt_brojevi_naziv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="237" y="0" width="79" height="15" uuid="57c09769-eec2-4363-a3ae-c00016dd0090"/>
+				<textElement>
+					<font pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ptt_brojevi_drzava_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="316" y="0" width="79" height="15" uuid="852e7ef4-5ac2-440e-9077-34dc48a66f9a"/>
+				<textElement>
+					<font pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ptt_brojevi_drzava_sifra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="395" y="0" width="79" height="15" uuid="6c4e8241-9c76-4998-a8f3-19496191e3d8"/>
+				<textElement>
+					<font pdfEncoding="Cp1250"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ptt_brojevi_drzava}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="474" y="0" width="79" height="15" uuid="7e86e1d5-b277-4557-bf4f-46cd7541ffda"/>
+				<textFieldExpression><![CDATA[$F{ptt_brojevi_aktivan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="cd283c38-e6a4-4713-bb80-d53435c76a53"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="8b72c1f2-9303-46b1-bde7-34df5043c3bc"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="ba9234ca-d17d-4fe2-b809-0ab87748f65a"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="f3d8b919-c02f-4a16-805e-5c3654f8d023"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

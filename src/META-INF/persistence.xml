@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="guiPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>model.PodaciOPastoralnojSluzbi</class>
+    <class>model.PodaciOPrijaviIOsiguranju</class>
+    <class>model.LicniPodaci</class>
+    <class>model.MaticniPodaci</class>
+    <class>model.PodaciODodatnojSluzbi</class>
+    <class>model.Artikli</class>
+    <class>model.Drzave</class>
+    <class>model.Cenovnik</class>
+    <class>model.ArtikliPakovanja</class>
+    <class>model.Akcije</class>
+    <class>model.Partneri</class>
+    <class>model.PartneriRacuniModel</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/personal?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.password" value=""/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+    </properties>
+  </persistence-unit>
+</persistence>

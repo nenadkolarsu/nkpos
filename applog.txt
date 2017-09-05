@@ -1,0 +1,18 @@
+DEBUG   2017-06-09 13:21:29,384 [AWT-EventQueue-0] maticni.MaticniPodaci  - this is a debug log message
+INFO    2017-06-09 13:21:29,384 [AWT-EventQueue-0] maticni.MaticniPodaci  - this is a information log message
+WARN    2017-06-09 13:21:29,385 [AWT-EventQueue-0] maticni.MaticniPodaci  - this is a warning log message
+DEBUG   2017-06-09 13:29:22,391 [AWT-EventQueue-0] maticni.MaticniPodaci  - this is a debug log message
+INFO    2017-06-09 13:29:22,392 [AWT-EventQueue-0] maticni.MaticniPodaci  - this is a information log message
+WARN    2017-06-09 13:29:22,392 [AWT-EventQueue-0] maticni.MaticniPodaci  - this is a warning log message
+DEBUG   2017-06-09 13:34:53,227 [AWT-EventQueue-0] maticni.MaticniPodaci  - this is a debug log message
+INFO    2017-06-09 13:34:53,228 [AWT-EventQueue-0] maticni.MaticniPodaci  - this is a information log message
+WARN    2017-06-09 13:34:53,228 [AWT-EventQueue-0] maticni.MaticniPodaci  - this is a warning log message
+INFO    2017-06-09 13:35:11,448 [AWT-EventQueue-0] maticni.MaticniPodaci  - First button com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` < 5 order by id desc' at line 1
+INFO    2017-06-26 18:17:46,834 [AWT-EventQueue-0] maticni.MaticniPodaci  - punjenjeJtableIPrikazModelaSaUslovom nacin_placanja SQLException com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'nkpos.nacin_placanja' doesn't exist
+INFO    2017-06-26 18:17:55,131 [AWT-EventQueue-0] maticni.MaticniPodaci  - punjenjeJtableIPrikazModelaSaUslovom jedinica_mere SQLException com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'nkpos.jedinica_mere' doesn't exist
+INFO    2017-06-26 18:18:03,053 [AWT-EventQueue-0] maticni.MaticniPodaci  - punjenjeJtableIPrikazModelaSaUslovom odeljenje SQLException com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'nkpos.odeljenje' doesn't exist
+DEBUG   2017-07-05 14:38:29,342 [AWT-EventQueue-0] service.MyLogger  - this is a debug log message
+INFO    2017-07-05 14:38:29,358 [AWT-EventQueue-0] service.MyLogger  - this is a information log message
+WARN    2017-07-05 14:38:29,358 [AWT-EventQueue-0] service.MyLogger  - this is a warning log message
+INFO    2017-07-05 14:38:29,358 [AWT-EventQueue-0] forms_pos.Main  - this is a information log message
+INFO    2017-07-05 14:38:29,358 [AWT-EventQueue-0] service.MyLogger  - mylogger
