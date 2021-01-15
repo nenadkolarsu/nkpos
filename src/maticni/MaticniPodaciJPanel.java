@@ -676,7 +676,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
             iMessage.setText("");
             DefaultTableModel model = (DefaultTableModel) tblSifre.getModel();
             ZemljaTable zemlja = new ZemljaTable(conn, td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
-
+//
             if (!mSifra.getText().trim().equals("")) {
                 
                 zemlja.data.sifra = mSifra.getText();
