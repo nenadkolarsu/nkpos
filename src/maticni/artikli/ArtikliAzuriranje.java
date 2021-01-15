@@ -57,6 +57,7 @@ import org.apache.log4j.Logger;
 import org.asoft.library.AsoftDFP;
 import static org.asoft.library.AsoftDFP.NULA;
 import org.asoft.library.AsoftDate;
+import org.asoft.library.AsoftTaskData;
 import service.MyLogger;
 import static service.id_false.id_false;
 import service.puniComboMaticni;
@@ -75,7 +76,8 @@ public class ArtikliAzuriranje extends javax.swing.JFrame {
     String tabela, par, akcija;
     int rekordaUslektu = 0;
     MyLogger ml = new MyLogger();
-
+    AsoftTaskData td = null;
+        
     InputStream mphoto = null;
     ArrayList<Cenovnik> cenovnikArray = new ArrayList<>();
     ArrayList<ArtikliPakovanja> pakovanjaArray = new ArrayList<ArtikliPakovanja>();
@@ -2182,29 +2184,37 @@ public class ArtikliAzuriranje extends javax.swing.JFrame {
         mSifra2.setText("");
         mPLU.setText("");
 
-        List<String> listTipArtikla = puniComboMaticni.puni_maticne(conn, "tip_artikla");
+
+        List<String> listTipArtikla = null;
+        try {
+            listTipArtikla = puniComboMaticni.puni_maticne(td, "tip_artikla");
+
         mTip.setModel(new DefaultComboBoxModel(listTipArtikla.toArray()));
 
-        List<String> listJediniceMere = puniComboMaticni.puni_maticne(conn, "jedinica_mere");
+        List<String> listJediniceMere = puniComboMaticni.puni_maticne(td, "jedinica_mere");
         mJedinicaMere.setModel(new DefaultComboBoxModel(listJediniceMere.toArray()));
 
-        List<String> listPoreskaGrupa = puniComboMaticni.puni_maticne(conn, "poreska_tarifa");
+        List<String> listPoreskaGrupa = puniComboMaticni.puni_maticne(td, "poreska_tarifa");
         mPoreskaGrupa.setModel(new DefaultComboBoxModel(listPoreskaGrupa.toArray()));
 
-        List<String> listOdeljenje = puniComboMaticni.puni_maticne(conn, "odeljenje");
+        List<String> listOdeljenje = puniComboMaticni.puni_maticne(td, "odeljenje");
         mOdeljenje.setModel(new DefaultComboBoxModel(listOdeljenje.toArray()));
 
-        List<String> listKlasifikacija = puniComboMaticni.puni_maticne(conn, "klasifikacija_artikala");
+        List<String> listKlasifikacija = puniComboMaticni.puni_maticne(td, "klasifikacija_artikala");
         mKlasifikacija.setModel(new DefaultComboBoxModel(listKlasifikacija.toArray()));
 
-        List<String> listCarinskaTarifa = puniComboMaticni.puni_maticne(conn, "carinska_tarifa_artikala");
+        List<String> listCarinskaTarifa = puniComboMaticni.puni_maticne(td, "carinska_tarifa_artikala");
         mCarinskaTarifa.setModel(new DefaultComboBoxModel(listCarinskaTarifa.toArray()));
 
-        List<String> listPartneri = puniComboMaticni.puni_maticne(conn, "partneri");
+        List<String> listPartneri = puniComboMaticni.puni_maticne(td, "partneri");
         mProizvodjac.setModel(new DefaultComboBoxModel(listPartneri.toArray()));
 
 //        mSlika.setText(service.uzmiParametar.uzmiParametar(conn, "artikal_icon"));
-        mSlikaTA.setText(service.uzmiParametar.uzmiParametar(conn, "artikal_icon"));
+        mSlikaTA.setText(service.uzmiParametar.uzmiParametar(td.getConn(), "artikal_icon"));
+        
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(ArtikliAzuriranje.class.getName()).log(Level.SEVERE, null, ex);
+        }        
 //        proizvodjac/kupac
 //        List<String> listCarinskaTarifa = puniComboMaticni.puni_maticne(conn, "carinska_tarifa_artikala");
 //        mCarinskaTarifa.setModel(new DefaultComboBoxModel(listCarinskaTarifa.toArray())); 
@@ -2319,34 +2329,34 @@ public class ArtikliAzuriranje extends javax.swing.JFrame {
 
                 mId.setText(rs.getString("artikli.id"));
 
-                List<String> listTipArtikla = puniComboMaticni.puni_maticne(conn, "tip_artikla");
+                List<String> listTipArtikla = puniComboMaticni.puni_maticne(td, "tip_artikla");
                 mTip.setModel(new DefaultComboBoxModel(listTipArtikla.toArray()));
                 String aa = rs.getString("tip_artikla.naziv");
                 mTip.setSelectedItem(rs.getString("tip_artikla.naziv"));
 
-                List<String> listJediniceMere = puniComboMaticni.puni_maticne(conn, "jedinica_mere");
+                List<String> listJediniceMere = puniComboMaticni.puni_maticne(td, "jedinica_mere");
                 mJedinicaMere.setModel(new DefaultComboBoxModel(listJediniceMere.toArray()));
                 aa = rs.getString("jedinica_mere.naziv");
                 mJedinicaMere.setSelectedItem(rs.getString("jedinica_mere.naziv"));
 
-                List<String> listPoreskaGrupa = puniComboMaticni.puni_maticne(conn, "poreska_tarifa");
+                List<String> listPoreskaGrupa = puniComboMaticni.puni_maticne(td, "poreska_tarifa");
                 mPoreskaGrupa.setModel(new DefaultComboBoxModel(listPoreskaGrupa.toArray()));
                 aa = rs.getString("poreska_tarifa.naziv");
                 mPoreskaGrupa.setSelectedItem(rs.getString("poreska_tarifa.naziv"));
 
-                List<String> listOdeljenje = puniComboMaticni.puni_maticne(conn, "odeljenje");
+                List<String> listOdeljenje = puniComboMaticni.puni_maticne(td, "odeljenje");
                 mOdeljenje.setModel(new DefaultComboBoxModel(listOdeljenje.toArray()));
                 mOdeljenje.setSelectedItem(rs.getString("odeljenje.naziv"));
 
-                List<String> listKlasifikacija = puniComboMaticni.puni_maticne(conn, "klasifikacija_artikala");
+                List<String> listKlasifikacija = puniComboMaticni.puni_maticne(td, "klasifikacija_artikala");
                 mKlasifikacija.setModel(new DefaultComboBoxModel(listKlasifikacija.toArray()));
                 mKlasifikacija.setSelectedItem(rs.getString("klasifikacija_artikala.naziv"));
 
-                List<String> listCarinskaTarifa = puniComboMaticni.puni_maticne(conn, "carinska_tarifa_artikala");
+                List<String> listCarinskaTarifa = puniComboMaticni.puni_maticne(td, "carinska_tarifa_artikala");
                 mCarinskaTarifa.setModel(new DefaultComboBoxModel(listCarinskaTarifa.toArray()));
                 mCarinskaTarifa.setSelectedItem(rs.getString("carinska_tarifa_artikala.naziv"));
 
-                List<String> listProizvodjac = puniComboMaticni.puni_maticne(conn, "partneri");
+                List<String> listProizvodjac = puniComboMaticni.puni_maticne(td, "partneri");
                 mProizvodjac.setModel(new DefaultComboBoxModel(listProizvodjac.toArray()));
                 mProizvodjac.setSelectedItem(rs.getString("partneri.naziv"));
 
@@ -2386,6 +2396,8 @@ public class ArtikliAzuriranje extends javax.swing.JFrame {
         } catch (SQLException ex) {
             MyLogger.logger.error("Artikli " + ex.toString());
             iMessage.setText(ex.toString());
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(ArtikliAzuriranje.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         PripremaTabeleCena(mSifra.getText());

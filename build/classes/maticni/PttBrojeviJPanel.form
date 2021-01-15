@@ -95,25 +95,22 @@
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="mId" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                                          <Component id="mSifra" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="lTabela" min="-2" pref="254" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="mDrzava" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="mNaziv" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="mAktivan" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="asoftZemljaTableCombo1" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="mAktivan" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="mId" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                                  <Component id="mSifra" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lTabela" min="-2" pref="254" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="mDrzava" alignment="0" max="32767" attributes="0"/>
+                          <Component id="mNaziv" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -149,6 +146,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="mAktivan" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="asoftZemljaTableCombo1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
@@ -253,6 +251,8 @@
                   </Border>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="org.asoft.library.combos.AsoftZemljaTableCombo" name="asoftZemljaTableCombo1">
             </Component>
           </SubComponents>
         </Container>

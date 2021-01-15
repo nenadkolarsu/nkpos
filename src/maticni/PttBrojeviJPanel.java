@@ -8,6 +8,7 @@ package maticni;
 import forms_pos.Main;
 import forms_pos.Prijava;
 import glavni.Glavni;
+import glavni.Nkpos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -23,6 +24,11 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
+import org.asoft.library.AsoftTaskData;
+import org.asoft.library.combos.AsoftZemljaCombo;
+import org.asoft.library.entiteti.AsoftTabele;
+import org.asoft.library.entiteti.Postanski_brojTable;
+import org.asoft.library.entiteti.ZemljaTable;
 //import static maticni.MaticniPodaci.logger;
 import service.puniComboMaticni;
 
@@ -35,7 +41,9 @@ public class PttBrojeviJPanel extends javax.swing.JPanel {
     private Connection conn;
     private String tabela;
     private int rekordaUslektu;
-    public Glavni parent;
+    private Nkpos parent;
+    private AsoftTaskData td;
+    protected org.asoft.library.AsoftComboBoxTreeTable tabDobavljacCBzemlja;
 
     /**
      * Creates new form PttBrojeviJPanel
@@ -43,15 +51,36 @@ public class PttBrojeviJPanel extends javax.swing.JPanel {
     public PttBrojeviJPanel() {
         initComponents();
     }
+    
+    public PttBrojeviJPanel(Nkpos parent, AsoftTaskData td, String ptt_brojevi) {
+        
+        this.parent = parent;
+        this.td = td;
+        this.tabela = ptt_brojevi;
+        initComponents();
+        
+        try {
+            init();
+        } catch (Exception ex) {
+            Logger.getLogger(PttBrojeviJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
 
-    public PttBrojeviJPanel(Glavni parent, final Connection conn, final String tabela) {
+    public PttBrojeviJPanel(Nkpos parent, final Connection conn, final String tabela) {
 
         this.parent = parent;
-        this.conn = conn;
+        this.td = td;
         this.tabela = tabela;
         initComponents();
 //        tblSifre.setDefaultRenderer(Object.class, new MyCellRenderer());
-        List<String> listDrzave = puniComboMaticni.puni_maticne(conn, "drzave");
+        List<String> listDrzave = null;
+        try {
+            listDrzave = puniComboMaticni.puni_maticne(td, "drzave");
+        } catch (Exception ex) {
+            Logger.getLogger(PttBrojeviJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         mDrzava.setModel(new DefaultComboBoxModel(listDrzave.toArray()));
 //        setLocationRelativeTo(null);
 //        punjenjeJtable(); 
@@ -332,6 +361,7 @@ public class PttBrojeviJPanel extends javax.swing.JPanel {
         );
     }
 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -354,6 +384,7 @@ public class PttBrojeviJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         mAktivan = new javax.swing.JCheckBox();
         lTabela = new javax.swing.JLabel();
+        asoftZemljaTableCombo1 = new org.asoft.library.combos.AsoftZemljaTableCombo();
         jPanel1 = new javax.swing.JPanel();
         UnosBtn = new javax.swing.JButton();
         IzmenaBtn = new javax.swing.JButton();
@@ -434,19 +465,18 @@ public class PttBrojeviJPanel extends javax.swing.JPanel {
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(mId, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mSifra, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(mDrzava, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(mNaziv))
-                        .addGap(44, 44, 44))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(mAktivan)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(71, 71, 71)
+                        .addComponent(asoftZemljaTableCombo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mId, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mSifra, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mDrzava, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mNaziv))
+                .addGap(44, 44, 44))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -473,7 +503,8 @@ public class PttBrojeviJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(mAktivan)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(asoftZemljaTableCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
         );
 
@@ -951,6 +982,7 @@ public class PttBrojeviJPanel extends javax.swing.JPanel {
     private javax.swing.JButton NextBtn;
     private javax.swing.JButton PrevBtn;
     private javax.swing.JButton UnosBtn;
+    private org.asoft.library.combos.AsoftZemljaTableCombo asoftZemljaTableCombo1;
     private javax.swing.JTextField filterTxt;
     private javax.swing.JLabel iMessage;
     private javax.swing.JLabel jLabel1;
@@ -994,6 +1026,10 @@ public class PttBrojeviJPanel extends javax.swing.JPanel {
 //        model.setValueAt(mId.getText(), tblSifre.getSelectedRow(), 0);
 //        model.setValueAt(mSifra.getText(), tblSifre.getSelectedRow(), 1);
 //        model.setValueAt(mNaziv.getText(), tblSifre.getSelectedRow(), 2);
+
+          
+
+
         try {
             Statement stmt = conn.createStatement();
             // String[] array = yourString.split(wordSeparator);
@@ -1064,5 +1100,292 @@ public class PttBrojeviJPanel extends javax.swing.JPanel {
         } else {
             return 0;
         }
+    }
+
+    private void init() throws Exception {
+        
+
+          
+        // zemlja.rsToData(rs);
+        
+        // AsoftZemljaCombo zemljaCombo = new AsoftZemljaCombo(tabDobavljacCBzemlja, zemlja, conn, td.getSchema(AsoftTabele.SCHEMA.ZEMLJA), null, true);
+                                                  
+        List<String> listDrzave = puniComboMaticni.puni_maticne(td, "zemlja");
+        mDrzava.setModel(new DefaultComboBoxModel(listDrzave.toArray()));
+        punjenjeJtableIPrikazModelaSaUslovom(filterTxt.getText());
+        if (!Prijava.getKosam()) {
+            UnosBtn.setEnabled(false);
+            IzmenaBtn.setEnabled(false);
+            BrisanjeBtn.setEnabled(false);
+//            PregledBtn.setEnabled(false);
+        }
+        // Button to show the Next user from the List
+        NextBtn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String mmId = mId.getText();
+                Integer pos = Integer.valueOf(mmId);
+
+                pos++;
+//                if (pos < ListSifre("").size()) {
+//                    ShowPosInfo(pos, " order by id asc LIMIT 1");
+//                } else {
+//                    pos = ListSifre("").size() - 1;
+//                    ShowPosInfo(pos, " order by id asc LIMIT 1");
+//                    JOptionPane.showMessageDialog(null, " THE END ");
+//                }
+
+                ShowPosInfo(pos, " order by id asc LIMIT 1");
+
+//                System.out.println(pos);                
+//                tblSifre.clearSelection();
+//                tblSifre.changeSelection(pos, 1, false, false);
+                DefaultTableModel model = (DefaultTableModel) tblSifre.getModel();
+                String id = model.getValueAt(tblSifre.getSelectedRow(), 5).toString();
+//                int rows = rekordaUslektu; // tblSifre.getRowCount()-1;
+//                int cols = tblSifre.getColumnCount();
+
+//                tblSifre.clearSelection();
+//                System.out.println(id);   
+                int foo = Integer.parseInt(id);
+                if (foo < rekordaUslektu - 1) {
+                    foo++;
+                }
+                tblSifre.changeSelection(foo, 0, false, false);
+            }
+
+            private void ShowPosInfo(Integer pos, String orderilimit) {
+
+//                recordLbl.setText(pos.toString());
+                try {
+                    Statement stmt = conn.createStatement();
+
+                    String sqlQuery = " select * from " + tabela + " where id >= "
+                            + pos.toString() + orderilimit;
+                    ResultSet rs = stmt.executeQuery(sqlQuery);
+
+                    while (rs.next()) {
+                        mId.setText(rs.getString(1));
+                        mSifra.setText(rs.getString(2));
+                        mNaziv.setText(rs.getString(3));
+                        mDrzava.setSelectedItem(rs.getString("drzava"));
+                        int mmAktivan = rs.getInt("aktivan");
+                        if (mmAktivan == 1) {
+                            mAktivan.setSelected(true);
+                        } else {
+                            mAktivan.setSelected(false);
+                        }
+                        recordLbl.setText(rs.getString(1));
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(PttBrojevi.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        );
+
+        // Button to show the Next user from the List
+        PrevBtn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String mmId = mId.getText();
+                Integer pos = Integer.valueOf(mmId);
+                Integer pozicija;
+
+                pos--;
+                pozicija = ShowPosInfo(pos, " order by id desc LIMIT 1");
+//                if (pos < ListSifre("").size()) {
+//                    pozicija = ShowPosInfo(pos, " order by id desc LIMIT 1");
+//                } else {
+//                    pos = ListSifre("").size() - 1;
+//                    pozicija = ShowPosInfo(pos, " order by id desc LIMIT 1");
+//                    JOptionPane.showMessageDialog(null, " START ");
+//                }
+
+//                pozicija = ShowPosInfo(pos, " order by id desc LIMIT 1");             
+//                DefaultTableModel model = (DefaultTableModel) tblSifre.getModel();
+//                String id = model.getValueAt(tblSifre.getSelectedRow(), 5).toString(); // ovde treba da je za 1 manje
+////
+////                tblSifre.clearSelection();
+////                System.out.println(id);   
+//                int foo = Integer.parseInt(id);
+//                foo--;
+//                tblSifre.changeSelection(foo, 0, false, false);               
+////                tblSifre.changeSelection(pozicija, 0, false, false);   
+                DefaultTableModel model = (DefaultTableModel) tblSifre.getModel();
+                String id = model.getValueAt(tblSifre.getSelectedRow(), 5).toString();
+//                int rows = tblSifre.getRowCount()-1;
+//                int cols = tblSifre.getColumnCount();
+
+//                tblSifre.clearSelection();
+//                System.out.println(id);   
+                int foo = Integer.parseInt(id);
+                if (foo > 0) {
+                    foo--;
+                }
+                tblSifre.changeSelection(foo, 0, false, false);
+
+            }
+
+            private Integer ShowPosInfo(Integer pos, String orderilimit) {
+
+                Integer vracam = 0;
+//                recordLbl.setText(pos.toString());
+
+                try {
+                    Statement stmt = conn.createStatement();
+
+                    String sqlQuery = " select * from " + tabela + " where id <= "
+                            + pos.toString() + orderilimit;
+
+//                    System.out.println(sqlQuery);
+                    ResultSet rs = stmt.executeQuery(sqlQuery);
+
+                    while (rs.next()) {
+                        vracam = rs.getInt(1);
+                        mId.setText(rs.getString(1));
+                        mSifra.setText(rs.getString(2));
+                        mNaziv.setText(rs.getString(3));
+                        mDrzava.setSelectedItem(rs.getString("drzava"));
+                        int mmAktivan = rs.getInt("aktivan");
+                        if (mmAktivan == 1) {
+                            mAktivan.setSelected(true);
+                        } else {
+                            mAktivan.setSelected(false);
+                        }
+                        recordLbl.setText(rs.getString(1));
+                    }
+                } catch (SQLException ex) {
+//            Logger.getLogger(SearchWithTab.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                return vracam;
+            }
+        }
+        );
+
+        // Button to show the Next user from the List
+        FirstBtn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String mmId = mId.getText();
+                Integer pos = Integer.valueOf(mmId);
+
+//                pos++;
+                if (pos < ListSifre("").size()) {
+                    ShowPosInfo(pos, " order by id desc ");
+                } else {
+                    pos = ListSifre("").size() - 1;
+                    ShowPosInfo(pos, " order by id desc ");
+//                    JOptionPane.showMessageDialog(null, " START ");
+                }
+
+//                System.out.println(pos);                                
+//                tblSifre.clearSelection();
+//                tblSifre.changeSelection(pos, 1, false, false);        
+//                DefaultTableModel model = (DefaultTableModel) tblSifre.getModel();
+//                String id = model.getValueAt(tblSifre.getSelectedRow(), 5).toString();
+//
+//                tblSifre.clearSelection();
+//                System.out.println(id);   
+//                int foo = Integer.parseInt(id);
+                tblSifre.changeSelection(0, 1, false, false);
+
+            }
+
+            private void ShowPosInfo(Integer pos, String orderilimit) {
+
+                try {
+                    Statement stmt = conn.createStatement();
+
+                    String sqlQuery = " select * from " + tabela + " where id < "
+                            + pos.toString() + orderilimit;
+
+//                    System.out.println(sqlQuery);
+                    ResultSet rs = stmt.executeQuery(sqlQuery);
+
+                    while (rs.next()) {
+                        mId.setText(rs.getString(1));
+                        mSifra.setText(rs.getString(2));
+                        mNaziv.setText(rs.getString(3));
+                        mDrzava.setSelectedItem(rs.getString("drzava"));
+                        int mmAktivan = rs.getInt("aktivan");
+                        if (mmAktivan == 1) {
+                            mAktivan.setSelected(true);
+                        } else {
+                            mAktivan.setSelected(false);
+                        }
+                        recordLbl.setText(rs.getString(1));
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(PttBrojevi.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        );
+
+        LastBtn.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String mmId = mId.getText();
+                Integer pos = Integer.valueOf(mmId);
+
+//                pos++;
+                if (pos < ListSifre("").size()) {
+                    ShowPosInfo(pos, " order by id asc ");
+                } else {
+                    pos = ListSifre("").size() - 1;
+                    ShowPosInfo(pos, " order by id asc ");
+//                    JOptionPane.showMessageDialog(null, " END ");
+                }
+
+//                DefaultTableModel model = (DefaultTableModel) tblSifre.getModel();
+//                String id = model.getValueAt(tblSifre.getSelectedRow(), 5).toString();
+                int rows = tblSifre.getRowCount() - 1;
+//                int cols = tblSifre.getColumnCount();
+
+//                tblSifre.clearSelection();
+//                System.out.println(id);   
+//                int foo = Integer.parseInt(id);
+//                if (foo<rows)
+//                foo++;
+                tblSifre.changeSelection(rows, 0, false, false);
+            }
+
+            private void ShowPosInfo(Integer pos, String orderilimit) {
+
+                recordLbl.setText(pos.toString());
+
+                try {
+                    Statement stmt = conn.createStatement();
+
+                    String sqlQuery = " select * from " + tabela + " where id > "
+                            + pos.toString() + orderilimit;
+
+//                    System.out.println(sqlQuery);
+                    ResultSet rs = stmt.executeQuery(sqlQuery);
+
+                    while (rs.next()) {
+                        mId.setText(rs.getString(1));
+                        mSifra.setText(rs.getString(2));
+                        mNaziv.setText(rs.getString(3));
+                        mDrzava.setSelectedItem(rs.getString("drzava"));
+                        int mmAktivan = rs.getInt("aktivan");
+                        if (mmAktivan == 1) {
+                            mAktivan.setSelected(true);
+                        } else {
+                            mAktivan.setSelected(false);
+                        }
+                        recordLbl.setText(rs.getString(1));
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(PttBrojevi.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        );        
     }
 }

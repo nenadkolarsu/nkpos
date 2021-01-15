@@ -36,6 +36,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
+import org.asoft.library.AsoftTaskData;
 import service.puniComboMaticni;
 
 /**
@@ -74,8 +75,14 @@ public class PttBrojevi extends javax.swing.JFrame {
         
         initComponents();
         this.setTitle(tabela);  
+        AsoftTaskData td = null;
 //        tblSifre.setDefaultRenderer(Object.class, new MyCellRenderer());
-        List<String> listDrzave = puniComboMaticni.puni_maticne(conn, "drzave");
+        List<String> listDrzave = null;
+        try {
+            listDrzave = puniComboMaticni.puni_maticne(td, "drzave");
+        } catch (Exception ex) {
+            Logger.getLogger(PttBrojevi.class.getName()).log(Level.SEVERE, null, ex);
+        }
         mDrzava.setModel(new DefaultComboBoxModel(listDrzave.toArray()));
         setLocationRelativeTo(null);
 //        punjenjeJtable(); 

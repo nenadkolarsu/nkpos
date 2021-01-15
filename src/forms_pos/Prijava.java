@@ -1,6 +1,7 @@
 package forms_pos;
 
 import glavni.Glavni;
+import glavni.Nkpos;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.KeyAdapter;
@@ -8,6 +9,7 @@ import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
@@ -15,6 +17,13 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import konekcija.konekcija;
+import org.asoft.library.AsoftAutorizacija;
+import org.asoft.library.AsoftConstants;
+import org.asoft.library.AsoftGroupInfo;
+import org.asoft.library.AsoftServerGroupInfo;
+import org.asoft.library.AsoftTaskData;
+import org.asoft.library.entiteti.AsoftTabele;
+import org.asoft.library.entiteti.Korisnik_pravaTable;
 
 /**
  *
@@ -24,38 +33,37 @@ public class Prijava extends javax.swing.JFrame {
 
     public Connection conn;
     public static boolean kosam;
- 
+    public AsoftTaskData td;
+
     /**
      * Creates new form Prijava
      */
     public Prijava() {
         initComponents();
         setLocationRelativeTo(null);
-        
-  mPassword.addKeyListener(new KeyAdapter() {
-        public void keyPressed(KeyEvent e) {
-            if(e.getKeyCode() == KeyEvent.VK_ENTER){
-                bPrijava.doClick();
+
+        mPassword.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    bPrijava.doClick();
+                }
             }
-        }
 
-    });         
+        });
 
-  mKorisnik.addKeyListener(new KeyAdapter() {
-        public void keyPressed(KeyEvent e) {
-            if(e.getKeyCode() == KeyEvent.VK_ENTER){
-                mPassword.grabFocus();
+        mKorisnik.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    mPassword.grabFocus();
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    System.exit(0);
+                }
             }
-            if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
-                System.exit(0);
-            }            
-        }
 
-    });     
-  
+        });
+
     }
-    
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,10 +81,10 @@ public class Prijava extends javax.swing.JFrame {
         bPrijava = new javax.swing.JButton();
         mKorisnik = new javax.swing.JTextField();
         mPassword = new javax.swing.JPasswordField();
-        l = new javax.swing.JLabel();
+        KorisnikName = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         bIzlaz = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<String>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -118,7 +126,7 @@ public class Prijava extends javax.swing.JFrame {
 
         mPassword.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        l.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        KorisnikName.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icone_nove/Login-icon.png"))); // NOI18N
 
@@ -136,7 +144,7 @@ public class Prijava extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel", "com.sun.java.swing.plaf.motif.MotifLookAndFeel", "com.sun.java.swing.plaf.gtk.GTKLookAndFeel", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "net.sourceforge.napkinlaf.NapkinLookAndFeel", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel", "com.sun.java.swing.plaf.motif.MotifLookAndFeel", "com.sun.java.swing.plaf.gtk.GTKLookAndFeel", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "net.sourceforge.napkinlaf.NapkinLookAndFeel", " " }));
         jComboBox1.setToolTipText("Izbor teme za prikaz");
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,31 +169,27 @@ public class Prijava extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(63, 63, 63)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(l, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(279, 279, 279))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(1, 1, 1)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(mPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                                    .addComponent(mKorisnik)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(1, 1, 1)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(mPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-                                            .addComponent(mKorisnik)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(bPrijava, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(bIzlaz, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(17, 17, 17)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(90, Short.MAX_VALUE))))
+                                .addComponent(jLabel5)
+                                .addGap(17, 17, 17)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(KorisnikName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(bPrijava, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(bIzlaz, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(90, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(233, 233, 233)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,13 +216,14 @@ public class Prijava extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bIzlaz, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bPrijava))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(l)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(KorisnikName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
@@ -257,8 +262,12 @@ public class Prijava extends javax.swing.JFrame {
     }//GEN-LAST:event_bPrijavaMouseReleased
 
     private void bPrijavaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPrijavaActionPerformed
-        // TODO add your handling code here:
-        prijava();
+        try {
+            // TODO add your handling code here:
+            prijava();
+        } catch (Exception ex) {
+            Logger.getLogger(Prijava.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bPrijavaActionPerformed
 
     private void bIzlazMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIzlazMouseReleased
@@ -314,7 +323,7 @@ public class Prijava extends javax.swing.JFrame {
                     break;
                 }
             }
-        UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 //              lookAndFeel = javax.swing.UIManager.getSystemLookAndFeelClassName();
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Prijava.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -331,8 +340,8 @@ public class Prijava extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new Prijava().setVisible(true);
-
             }
         });
 
@@ -346,6 +355,7 @@ public class Prijava extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel KorisnikName;
     private javax.swing.JButton bIzlaz;
     private javax.swing.JButton bPrijava;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -356,51 +366,75 @@ public class Prijava extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel l;
     private javax.swing.JTextField mKorisnik;
     private javax.swing.JPasswordField mPassword;
     // End of variables declaration//GEN-END:variables
 
-    private void prijava() {
+    private void prijava() throws Exception {
+
+        if (conn == null) {
+            konekcija n = new konekcija();
+            conn = n.konekcija();
+        }
 
         try {
-            if (conn == null) {
-                konekcija n = new konekcija();
-                conn = n.konekcija();
-            }
-            PreparedStatement ps = conn.prepareStatement("select sifra, naziv, aktivan from reg where sifra=? and naziv=?");
-            ps.setString(1, mKorisnik.getText());
-            ps.setString(2, mPassword.getText());
-            ResultSet rs = ps.executeQuery();
-
-            if (rs.next()) {
-
-                kosam = rs.getBoolean("aktivan");
-                l.setText("you are succefully logged in.."); //0 = new JLabel("you are succefully logged in..");
-                l.setForeground(Color.blue);
-                l.setFont(new Font("Serif", Font.BOLD, 30));
-                l.setBounds(60, 50, 400, 30);
-
-                l.setText("Welcome " + rs.getString(1));
-                l.setForeground(Color.red);
-                l.setFont(new Font("Serif", Font.BOLD, 30));
-
-                Pos p = new Pos();
-
-//                Glavni p = new Glavni();                
-                p.setVisible(true);
-                this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Neispravna prijava", "Obavestenje", JOptionPane.ERROR_MESSAGE);
-            }
-
-        } catch (Exception ex) {
-            System.out.println(ex);
+            makeTD();
+        } catch (Exception e) {
+            throw e;
         }
+
+        // da li ima privilegiju
+        // *********************
+        boolean ima_pravo = false;
+        Korisnik_pravaTable kpt = new Korisnik_pravaTable(conn, td.getSchema(AsoftTabele.SCHEMA.KORISNIK_PRAVA));
+
+        if (!td.getAsoftGroupInfo().getImeKorisnika().equals(AsoftConstants.ASOFT_ADMINISTRATOR)) {
+            kpt.getKorisnikForIme(td.getAsoftGroupInfo().getImeKorisnika());
+            ima_pravo = kpt.korisnikImaPravo(AsoftAutorizacija.Maloprodaja_Razduzenje_MP);
+        }
+        int privilegija = Korisnik_pravaTable.NEMA_PRAVO;
+        
+        if (ima_pravo) {
+            privilegija = kpt.getKorisnikPravo(AsoftAutorizacija.Maloprodaja_Razduzenje_MP);
+        }
+        
+            Nkpos gt = new Nkpos(td);
+            gt.setVisible(true);
+            this.dispose();
+
+            /*
+        if (privilegija > 0 || td.getAsoftGroupInfo().getImeKorisnika().equals(AsoftConstants.ASOFT_ADMINISTRATOR)) {
+
+            KorisnikName.setText("you are succefully logged in.."); //0 = new JLabel("you are succefully logged in..");
+            KorisnikName.setForeground(Color.blue);
+            KorisnikName.setFont(new Font("Serif", Font.BOLD, 30));
+            KorisnikName.setBounds(60, 50, 400, 30);
+
+            
+            Glavni_test gt = new Glavni_test();
+            gt.setVisible(true);
+            this.dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Neispravna prijava", "Obaveštenje", JOptionPane.ERROR_MESSAGE);
+        }
+        */
     }
 
     public static boolean getKosam() {
         return kosam;
+    }
+
+    void makeTD() throws Exception {
+        String curfirma = "Pionir 2021";
+        AsoftTabele asofttabele;
+        AsoftServerGroupInfo sgi;
+        asofttabele = new AsoftTabele(conn, curfirma, null);
+        AsoftGroupInfo currentgroup = new AsoftGroupInfo(asofttabele, (short) 2021, new ArrayList<String>());
+        td = AsoftTaskData.nextTask(AsoftAutorizacija.dummy_entry, conn, currentgroup);
+        sgi = AsoftServerGroupInfo.getOrCreateServerGroupInfo("default");
+        sgi.setImeKorisnika(mKorisnik.getText());
+        currentgroup.setServerGroupInfo(sgi);
     }
 
 }

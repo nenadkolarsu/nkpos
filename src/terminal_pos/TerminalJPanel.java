@@ -6,6 +6,7 @@
 package terminal_pos;
 
 import glavni.Glavni;
+import glavni.Nkpos;
 import java.sql.Connection;
 
 /**
@@ -19,6 +20,11 @@ public class TerminalJPanel extends javax.swing.JPanel {
      */
     public TerminalJPanel(Glavni parent, Connection conn) {
         initComponents();
+    }
+
+    public TerminalJPanel(Nkpos parent, Connection conn) {
+        initComponents();
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

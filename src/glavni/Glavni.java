@@ -344,29 +344,32 @@ jt.setFont(bigFont);
 
                 if (tp.toString().equals("[Smart POS, Matični podaci, Države]")) {
 
+                    /*
                     MaticniPodaciJPanel mpjp = new MaticniPodaciJPanel(parent, conn, "drzave");
                     mpjp.setOpaque(false);
                     jTabbedPane2.add(mpjp);
 
                     int aa = jTabbedPane2.indexOfComponent(mpjp);
                     jTabbedPane2.setTabComponentAt(jTabbedPane2.indexOfComponent(mpjp), getTitlePanel(jTabbedPane2, mpjp, "Države"));
-
-//                    jTabbedPane2.grabFocus();
-//                    jTabbedPane2.requestFocus();
-// get the currently selected index for this tabbedpane
                     int selectedIndex = jTabbedPane2.getSelectedIndex();
 
                     System.out.println("Default Index:" + selectedIndex);
-
-                    // select the last tab
                     jTabbedPane2.setSelectedIndex(jTabbedPane2.getTabCount() - 1);
 
                     selectedIndex = jTabbedPane2.getSelectedIndex();
 
                     System.out.println("New Index:" + selectedIndex);
+                    */
+                    
+                    
+/*                  jTabbedPane2.grabFocus();
+                    jTabbedPane2.requestFocus();
+                    get the currently selected index for this tabbedpane
+*/
 
                 } else if (tp.toString().equals("[Smart POS, Matični podaci, Ptt brojevi]")) {
 
+                    /*
                     PttBrojeviJPanel mpjp = new PttBrojeviJPanel(parent, conn, "ptt_brojevi");
                     mpjp.setOpaque(false);
                     jTabbedPane2.add(mpjp);
@@ -375,7 +378,7 @@ jt.setFont(bigFont);
                     int selectedIndex = jTabbedPane2.getSelectedIndex();
                     jTabbedPane2.setSelectedIndex(jTabbedPane2.getTabCount() - 1);
                     selectedIndex = jTabbedPane2.getSelectedIndex();
-
+                    */
                 }
                 
                 else if (tp.toString().equals("[Smart POS, Prodaja, Terminal]")) {

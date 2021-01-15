@@ -3035,3 +3035,215 @@ INFO    2017-09-05 19:23:08,021 [AWT-EventQueue-0] service.MyLogger  - Pakovanja
 INFO    2017-09-05 19:23:13,185 [AWT-EventQueue-0] service.MyLogger  - Cenovnik
 INFO    2017-09-05 19:23:32,838 [AWT-EventQueue-0] service.MyLogger  - Trazenje partnera
 INFO    2017-09-05 19:23:35,575 [AWT-EventQueue-0] service.MyLogger  - Ažuriranje partnera
+INFO    2021-01-11 10:06:19,123 [AWT-EventQueue-0] service.MyLogger  - MaticniPodaci
+ERROR   2021-01-11 10:06:19,262 [AWT-EventQueue-0] service.MyLogger  - org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-11 10:06:27,191 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom poreska_tarifa SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-13 13:38:38,121 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom drzave SQLException org.postgresql.util.PSQLException: ERROR: syntax error at or near "%"
+  Position: 90
+INFO    2021-01-13 13:55:57,080 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: Bad value for type int : 
+INFO    2021-01-13 14:05:53,295 [AWT-EventQueue-0] forms_pos.Main  - Mouse click on table Exception org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 16
+INFO    2021-01-13 14:06:27,067 [AWT-EventQueue-0] forms_pos.Main  - Mouse click on table Exception org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-13 14:06:27,740 [AWT-EventQueue-0] forms_pos.Main  - Mouse click on table Exception org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-13 14:06:28,315 [AWT-EventQueue-0] forms_pos.Main  - Mouse click on table Exception org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-13 14:06:28,995 [AWT-EventQueue-0] forms_pos.Main  - Mouse click on table Exception org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-13 14:06:41,107 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-13 14:06:44,234 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-13 14:07:19,345 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-13 14:12:39,561 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-14 07:17:19,722 [AWT-EventQueue-0] forms_pos.Main  - Mouse click on table Exception org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 16
+INFO    2021-01-14 08:09:12,049 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 08:03:00,289 [AWT-EventQueue-0] forms_pos.Main  - Mouse click on table Exception org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 16
+INFO    2021-01-15 10:35:50,451 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 16
+INFO    2021-01-15 10:35:51,648 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:52,808 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:53,504 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:54,024 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:54,248 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:54,480 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:55,176 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:55,424 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:55,960 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:56,184 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:56,408 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:56,664 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:57,232 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:57,439 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:58,448 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:58,950 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:59,175 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:59,424 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:59,631 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:35:59,849 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:00,112 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:00,559 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:00,808 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:01,016 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:01,247 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:01,512 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:01,760 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:01,992 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:02,216 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:02,456 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:03,016 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:03,225 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:03,440 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:04,728 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:04,975 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:05,208 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:05,423 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:06,376 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:06,616 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:06,896 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:07,136 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:36:07,424 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 10:57:18,250 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: function lower() does not exist
+  Hint: No function matches the given name and argument types. You might need to add explicit type casts.
+  Position: 84
+INFO    2021-01-15 11:42:25,309 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: function lower() does not exist
+  Hint: No function matches the given name and argument types. You might need to add explicit type casts.
+  Position: 84
+INFO    2021-01-15 11:46:37,283 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: operator does not exist: ` bigint
+  Hint: No operator matches the given name and argument type(s). You might need to add explicit type casts.
+  Position: 60
+INFO    2021-01-15 11:49:40,530 [AWT-EventQueue-0] forms_pos.Main  - Mouse click on table Exception org.postgresql.util.PSQLException: ERROR: unterminated quoted string at or near "'399"
+  Position: 55
+INFO    2021-01-15 11:49:45,006 [AWT-EventQueue-0] forms_pos.Main  - Mouse click on table Exception org.postgresql.util.PSQLException: ERROR: unterminated quoted string at or near "'403"
+  Position: 55
+INFO    2021-01-15 11:49:49,245 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 11:53:48,855 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: syntax error at or near "%"
+  Position: 90
+INFO    2021-01-15 12:34:19,349 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 16
+INFO    2021-01-15 14:27:58,560 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:28:13,155 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:28:17,918 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 16
+INFO    2021-01-15 14:28:19,533 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:20,036 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:20,245 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:20,437 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:20,668 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:21,189 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:21,645 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:22,172 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:30,744 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:30,747 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:30,749 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:35,157 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:28:35,158 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:35:35,953 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:36,550 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:37,085 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:37,342 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:37,589 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:37,813 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:38,021 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:38,205 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:39,061 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:39,318 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:39,557 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:39,757 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:39,957 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:40,150 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:40,365 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:35:41,757 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-15 14:35:41,758 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:35:41,758 [AWT-EventQueue-0] forms_pos.Main  - First button org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:35:42,853 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:35:42,854 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:35:42,854 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:35:45,821 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:35:45,989 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:35:46,885 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:35:59,731 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:36:21,500 [AWT-EventQueue-0] forms_pos.Main  - punjenjeJtableIPrikazModelaSaUslovom zemlja SQLException org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:17,220 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:17,783 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:17,991 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:18,591 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:19,958 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:20,191 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:20,432 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:20,671 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:20,951 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:21,198 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:21,455 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:21,735 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:22,391 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:22,662 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:22,959 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:23,271 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:23,503 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:23,727 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:23,967 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:26,327 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:26,591 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:27,015 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:27,239 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:27,479 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:27,719 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:27,967 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:28,175 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:28,407 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:28,622 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:28,878 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:29,103 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:29,343 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : f
+INFO    2021-01-15 14:55:29,583 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : f
+INFO    2021-01-15 14:55:29,806 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:30,150 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:30,503 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:31,151 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:31,399 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:31,607 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:31,822 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:32,031 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:32,271 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:32,511 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:33,704 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:33,927 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:34,127 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:34,351 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:34,615 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:34,919 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:35,135 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:36,031 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:36,287 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:36,495 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:36,727 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:36,959 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:37,175 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:37,407 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:37,647 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : f
+INFO    2021-01-15 14:55:37,862 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:38,111 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:38,367 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:40,887 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-15 14:55:41,623 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-15 14:55:41,624 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:41,624 [AWT-EventQueue-0] forms_pos.Main  - First button org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:42,358 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:42,358 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:42,359 [AWT-EventQueue-0] forms_pos.Main  - First button org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:42,550 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:42,551 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:42,551 [AWT-EventQueue-0] forms_pos.Main  - First button org.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:43,262 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:43,470 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:43,679 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:43,902 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:44,646 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:45,518 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:45,767 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:46,231 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:46,454 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:46,671 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:46,894 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:47,390 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-15 14:55:47,614 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block

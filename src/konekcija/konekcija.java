@@ -15,8 +15,16 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -24,6 +32,25 @@ import javax.swing.JOptionPane;
  */
 public class konekcija {
 
+    static Connection conn;
+
+    private static void displayEndOfLog(boolean success) {
+
+        String mssg = "";
+        
+        if (success) {
+            mssg = mssg + "Uspesna Potvrda prijema!";
+        } else {
+            mssg = mssg + "NEUSPESNA Potvrda prijema!";
+        }
+        log.info(mssg); // NOI18N
+        log.info(
+                "---------------------------------------------------------------------------------------------------");
+        log.info("                                 Kraj loga:" + " " + new java.util.Date());
+        log.info(
+                "---------------------------------------------------------------------------------------------------");    
+    }
+    
     public Connection conn1 = null;
     Connection conn2 = null;
     Connection conn3 = null;
@@ -31,127 +58,120 @@ public class konekcija {
     String user = "root";
     String password = "";
     String host = "";
+    String DRIVER_MANAGER_CONNECTION_STRING = "jdbc:postgresql://10.11.124.202:5432/asoft?user=vlada&password=vladakk";
+    static Log log = LogFactory.getLog("asoftsyncpgdiff");
+    final static int SUCCESSFUL_EXIT = 0;
+    final static int UNSUCCESSFUL_EXIT = 1;
+    final static int HALT_SYSTEM = 2;
+    static String subject_successful;
+    static String subject_unsuccessful;    
 
     public Connection konekcija() {
 
-//        File xmlFile = new File("kuci.txt");
         File FILENAME = new File("c:\\gui\\reports\\boot.txt");
-
-//        if (xmlFile.exists()) {
-//            url1 = "jdbc:mysql://localhost:3306/personal?useUnicode=true&characterEncoding=utf-8";
-//            user = "root";
-//            password = "";
-//        } else 
         if (FILENAME.exists()) {
             try {
-            host=  readFile("c:\\gui\\reports\\boot.txt");
+                host = readFile("c:\\gui\\reports\\boot.txt");
             } catch (IOException ex) {
                 Logger.getLogger(konekcija.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            		try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
+            try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
+                String sCurrentLine;
+                while ((sCurrentLine = br.readLine()) != null) {
+                    host = sCurrentLine;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-			String sCurrentLine;
-
-			while ((sCurrentLine = br.readLine()) != null) {
-				host = sCurrentLine;
-			}
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-                        
             url1 = "jdbc:mysql://" + host + ":3306/nkpos?useUnicode=true&characterEncoding=utf-8";
             user = "porta";
             password = "porta1";
-            
-//            JFrame frame = new JFrame("InputDialog Example #2");
-//            String code = JOptionPane.showInputDialog(
-//                    frame,
-//                    "Enter host ",
-//                    "Host needed (title)",
-//                    JOptionPane.WARNING_MESSAGE
-//            );
-//            // if the user presses Cancel, this will be null
-////            System.out.printf("The secret code is '%s'.\n", code);
-//            String userp = JOptionPane.showInputDialog(
-//                    frame,
-//                    "Enter user ",
-//                    "User needed (title)",
-//                    JOptionPane.WARNING_MESSAGE
-//            );
-//            String pass = JOptionPane.showInputDialog(
-//                    frame,
-//                    "Enter pass ",
-//                    "Host needed (title)",
-//                    JOptionPane.WARNING_MESSAGE
-//            );
-//            url1 = "jdbc:mysql://" + code + ":3306/personal?useUnicode=true&characterEncoding=utf-8";
-//            user = userp;
-//            password = pass;
-        }
 
-        try {
-            // connect way #1
-            // con = DriverManager.getConnection("jdbc:mysql:///dbname?useUnicode=true&characterEncoding=utf-8", "user", "pass");
+        } else {
 
-//            url1 = "jdbc:mysql://localhost:3306/personal";
-//
-//            url1 = "jdbc:mysql://localhost:3306/personal?useUnicode=true&characterEncoding=utf-8";
-//            user = "root";
-//            password = "";
-            
-            conn1 = DriverManager.getConnection(url1, user, password);
+            try {                
+                conn = DriverManager.getConnection("jdbc:postgresql://10.11.124.202:5432/asoft?user=vlada&password=vladakk");
+                conn.setAutoCommit(false);
+            } catch (SQLException ex) {
+                log.error(ex.toString());
+                SendEmail(HALT_SYSTEM, subject_unsuccessful, ex.toString());
+                JFrame frame = new JFrame("Information");
+                JOptionPane.showMessageDialog(frame, "An error occurred. Maybe user/password is invalid");
 
-            if (conn1 != null) {
-//                System.out.println("Connected to the database .... ");
             }
 
-            // connect way #2
-//            String url2 = "jdbc:mysql://localhost:3306/test2?user=root&password=secret";
-//            conn2 = DriverManager.getConnection(url2);
-//            if (conn2 != null) {
-//                System.out.println("Connected to the database test2");
-//            }
-            // connect way #3
-//            String url3 = "jdbc:mysql://localhost:3306/test3";
-//            Properties info = new Properties();
-//            info.put("user", "root");
-//            info.put("password", "secret");
-// 
-//            conn3 = DriverManager.getConnection(url3, info);
-//            if (conn3 != null) {
-//                System.out.println("Connected to the database test3");
-//            }
-            
-        } catch (SQLException ex) {
-                      JFrame frame = new JFrame("Information");
-            JOptionPane.showMessageDialog(frame, "An error occurred. Maybe user/password is invalid");
-            System.out.println("An error occurred. Maybe user/password is invalid");
-            ex.printStackTrace();
+            return conn;
         }
+
         return conn1;
     }
     
-    
-    public String readFile(String filename) throws IOException
-{
-    String content = null;
-    File file = new File(filename); //for ex foo.txt
-    FileReader reader = null;
-    try {
-        reader = new FileReader(file);
-        char[] chars = new char[(int) file.length()];
-        reader.read(chars);
-        content = new String(chars);
-        reader.close();
-    } catch (IOException e) {
-        e.printStackTrace();
-    } finally {
-        if(reader !=null)
-        {reader.close();}
+    private static void SendEmail(int CODE, String subject, String body) {
+
+        // https://www.javatpoint.com/example-of-sending-email-using-java-mail-api
+        String host = "mail.agroupm.com";
+        final String user = "nenad.kolar@a-pionir.com";
+        final String password = "nenadkrs";
+
+        String[] to = {"nenad.kolar@pionir.rs", "nenad.kolar@pionir.rs"};
+        // if (CODE==UNSUCCESSFUL_EXIT)
+        // to[1] = "zoran.cincovic@a-asoft.com";        
+
+        //Get the session object  
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.auth", "true");
+
+        javax.mail.Session session = javax.mail.Session.getDefaultInstance(props,
+                new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, password);
+            }
+        });
+ 
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(user));
+
+            for (int i = 0; i < to.length; i++) {
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(to[i]));
+            }
+
+            message.setSubject(subject);
+            message.setText(body); 
+            Transport.send(message);
+
+        } catch (MessagingException e) {
+            log.info("Neuspesno slanje emaila! " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        if (CODE == 2) {
+            displayEndOfLog(false);
+            System.exit(0);
+        }
+    }    
+
+    public String readFile(String filename) throws IOException {
+        String content = null;
+        File file = new File(filename); //for ex foo.txt
+        FileReader reader = null;
+        try {
+            reader = new FileReader(file);
+            char[] chars = new char[(int) file.length()];
+            reader.read(chars);
+            content = new String(chars);
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (reader != null) {
+                reader.close();
+            }
+        }
+        return content;
     }
-    return content;
-}
 
 }

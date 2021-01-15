@@ -8,6 +8,7 @@ package maticni;
 import forms_pos.Main;
 import forms_pos.Prijava;
 import glavni.Glavni;
+import glavni.Nkpos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -16,12 +17,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 //import static maticni.MaticniPodaci.logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.asoft.library.AsoftTaskData;
+import org.asoft.library.entiteti.AsoftTabele;
+import org.asoft.library.entiteti.Postanski_brojTable;
+import org.asoft.library.entiteti.ZemljaTable;
 
 /**
  *
@@ -32,7 +39,10 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
     private Connection conn;
     private String tabela;
     private int rekordaUslektu;
-    public Glavni parent;
+    // public Glavni parent;
+    private Nkpos parent;
+    private AsoftTaskData td;
+    private ArrayList myList = new ArrayList();
 
     /**
      * Creates new form MaticniPodaciJPanel
@@ -40,13 +50,13 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
     public MaticniPodaciJPanel() {
         initComponents();
     }
-    
-    public MaticniPodaciJPanel(Glavni parent, final Connection conn, final String tabela) {
-        
+
+    public MaticniPodaciJPanel(Nkpos parent, final AsoftTaskData td, final String tabela) {
+        this.td = td;
         this.parent = parent;
-        this.conn = conn;
+        this.conn = td.getConn();
         this.tabela = tabela;
-        
+
         String log4jConfigFile = System.getProperty("user.dir")
                 + File.separator + "log4j.properties";
         PropertyConfigurator.configure(log4jConfigFile);
@@ -54,12 +64,13 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
         initComponents();
 
         punjenjeJtableIPrikazModelaSaUslovom(filterTxt.getText());
-        if (!Prijava.getKosam()) {
+        /* if (!Prijava.getKosam()) {
             UnosBtn.setEnabled(false);
             IzmenaBtn.setEnabled(false);
             BrisanjeBtn.setEnabled(false);
             PregledBtn.setEnabled(false);
         }
+         */
 
         // Button to show the Next user from the List
         NextBtn.addActionListener(new ActionListener() {
@@ -87,8 +98,14 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                 try {
                     Statement stmt = conn.createStatement();
 
+                    /*
                     String sqlQuery = " select * from " + tabela + " where id >= "
                             + pos.toString() + orderilimit;
+                     */
+                    String sqlQuery = String.format("SELECT * FROM %s." + tabela + " WHERE ID >= "
+                            + pos.toString() + orderilimit,
+                            td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
+
                     ResultSet rs = stmt.executeQuery(sqlQuery);
 
                     while (rs.next()) {
@@ -104,7 +121,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                         recordLbl.setText(rs.getString(1));
                     }
                 } catch (SQLException ex) {
-                      Main.track.info("this is a information log message" + ex);
+                    Main.track.info("this is a information log message" + ex);
                 }
             }
         }
@@ -139,8 +156,13 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                 try {
                     Statement stmt = conn.createStatement();
 
+                    /*
                     String sqlQuery = " select * from " + tabela + " where id <= "
                             + pos.toString() + orderilimit;
+                     */
+                    String sqlQuery = String.format("SELECT * FROM %s." + tabela + " WHERE ID <= "
+                            + pos.toString() + orderilimit,
+                            td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
 
 //                    System.out.println(sqlQuery);
                     ResultSet rs = stmt.executeQuery(sqlQuery);
@@ -161,7 +183,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                     }
                 } catch (SQLException ex) {
 
-                Main.track.info("this is a information log message" + ex);                  
+                    Main.track.info("this is a information log message" + ex);
                 }
                 return vracam;
             }
@@ -194,8 +216,13 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                 try {
                     Statement stmt = conn.createStatement();
 
+                    /*
                     String sqlQuery = " select * from " + tabela + " where id < "
                             + pos.toString() + orderilimit;
+                     */
+                    String sqlQuery = String.format("SELECT * FROM %s." + tabela + " WHERE ID < "
+                            + pos.toString() + orderilimit,
+                            td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
 
 //                    System.out.println(sqlQuery);
                     ResultSet rs = stmt.executeQuery(sqlQuery);
@@ -217,7 +244,6 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                     Main.track.info("First button " + ex);
                 }
             }
-
 
         }
         );
@@ -247,8 +273,14 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                 try {
                     Statement stmt = conn.createStatement();
 
-                    String sqlQuery = " select * from " + tabela + " where id > "
-                            + pos.toString() + orderilimit;
+                    /*
+                    String sqlQuery = String.format("SELECT * FROM %s." + tabela + " WHERE ID > " 
+                            + pos.toString() + orderilimit ,
+                     */
+                    String sqlQuery = String.format("SELECT * FROM %s." + tabela + " WHERE ID > "
+                            + pos.toString() + orderilimit,
+                            td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
+
                     ResultSet rs = stmt.executeQuery(sqlQuery);
 
                     while (rs.next()) {
@@ -270,12 +302,11 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
         }
         );
 
-    }    
+    }
 
 //    public MaticniPodaciJPanel(Glavni parent) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -641,45 +672,62 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void UnosBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UnosBtnActionPerformed
-        iMessage.setText("");
-        DefaultTableModel model = (DefaultTableModel) tblSifre.getModel();
+        try {
+            iMessage.setText("");
+            DefaultTableModel model = (DefaultTableModel) tblSifre.getModel();
+            ZemljaTable zemlja = new ZemljaTable(conn, td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
 
-        if (!mSifra.getText().trim().equals("")) {
-            try {
+            if (!mSifra.getText().trim().equals("")) {
+                
+                zemlja.data.sifra = mSifra.getText();
+                zemlja.data.naziv = mNaziv.getText();
 
-                Statement stmt = conn.createStatement();
-
-                String sqlQuery = " insert into " + tabela + "(sifra, naziv, aktivan "
-                + ") "
-                + "values ('" + mSifra.getText() + "', '"
-                + mNaziv.getText() + "', '" + vratiJedanIliNula(mAktivan.isSelected())
-                + "')";
-
-                stmt.executeUpdate(sqlQuery);
-
-            } catch (Exception e) {
-                try {
-                    conn.rollback();
-                } catch (SQLException ex) {
-                    //          Logger.getLogger(putniNaloziZ.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                e.printStackTrace();
-            } finally {
-                //      if (rset != null) { try { rset.close();  rset = null; } catch(Exception e){e.printStackTrace();} }
-                //      if (stmt != null) { try { stmt.close();  stmt = null; } catch(Exception e){e.printStackTrace();} }
+                long insertData = zemlja.insertData();
+            } else {
+                iMessage.setText("Šifra nemože biti prazna ...");
             }
-            model.addRow(new Object[]{mId.getText(), mSifra.getText(), mNaziv.getText(), mAktivan.isSelected()});
-            mId.setText("");
-            mSifra.setText("");
-            mNaziv.setText("");
-            mAktivan.setSelected(true);
-        } else {
-            iMessage.setText("Šifra nemože biti prazna ...");
-        }
 
-        //        punjenjeJtable();
-        filterTxt.setText("");
-        punjenjeJtableIPrikazModelaSaUslovom(filterTxt.getText());
+            /*
+            if (!mSifra.getText().trim().equals("")) {
+                
+                try {
+                    
+                    Statement stmt = conn.createStatement();
+                    
+                    String sqlQuery = " insert into " + tabela + "(sifra, naziv, aktivan "
+                            + ") "
+                            + "values ('" + mSifra.getText() + "', '"
+                            + mNaziv.getText() + "', '" + vratiJedanIliNula(mAktivan.isSelected())
+                            + "')";
+                    
+                    stmt.executeUpdate(sqlQuery);
+                    
+                } catch (Exception e) {
+                    try {
+                        conn.rollback();
+                    } catch (SQLException ex) {
+                        //          Logger.getLogger(putniNaloziZ.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    e.printStackTrace();
+                } finally {
+                    //      if (rset != null) { try { rset.close();  rset = null; } catch(Exception e){e.printStackTrace();} }
+                    //      if (stmt != null) { try { stmt.close();  stmt = null; } catch(Exception e){e.printStackTrace();} }
+                }
+                model.addRow(new Object[]{mId.getText(), mSifra.getText(), mNaziv.getText(), mAktivan.isSelected()});
+                mId.setText("");
+                mSifra.setText("");
+                mNaziv.setText("");
+                mAktivan.setSelected(true);
+            } else {
+                iMessage.setText("Šifra nemože biti prazna ...");
+            }
+             */
+            //        punjenjeJtable();
+            filterTxt.setText("");
+            punjenjeJtableIPrikazModelaSaUslovom(filterTxt.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(MaticniPodaciJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_UnosBtnActionPerformed
 
     private void IzmenaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IzmenaBtnActionPerformed
@@ -703,10 +751,10 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                 String sqlQuery = null;
 
                 sqlQuery = " UPDATE " + tabela + " SET sifra='" + mSifra.getText()
-                + "', naziv='" + mNaziv.getText()
-                + "', aktivan='" + vratiJedanIliNula(mAktivan.isSelected())
-                + "' WHERE id = '" + mId.getText()
-                + "'";
+                        + "', naziv='" + mNaziv.getText()
+                        + "', aktivan='" + vratiJedanIliNula(mAktivan.isSelected())
+                        + "' WHERE id = '" + mId.getText()
+                        + "'";
 
                 System.out.println(sqlQuery);
                 stmt.execute(sqlQuery);
@@ -741,19 +789,19 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                 String sqlQuery = null;
 
                 sqlQuery = " DELETE FROM " + tabela
-                + " WHERE id = '" + mId.getText()
-                + "'";
+                        + " WHERE id = '" + mId.getText()
+                        + "'";
                 sqlQuery = " UPDATE " + tabela
-                + " SET aktivan=0 WHERE id = '" + mId.getText()
-                + "'";
+                        + " SET aktivan=0 WHERE id = '" + mId.getText()
+                        + "'";
                 //                System.out.println(sqlQuery);
                 // display the showOptionDialog
                 int choice = JOptionPane.showOptionDialog(this,
-                    "Da li ste sigurni u brisanje?",
-                    "Brisanje?",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE,
-                    null, null, null);
+                        "Da li ste sigurni u brisanje?",
+                        "Brisanje?",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null, null, null);
 
                 // interpret the user's choice
                 if (choice == JOptionPane.YES_OPTION) {
@@ -817,51 +865,58 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_mSifraActionPerformed
 
     private void tblSifreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSifreMouseClicked
+
         int index = tblSifre.getSelectedRow();
 
         TableModel model = tblSifre.getModel();
+        String sqlQuery = "";
 
         String id = model.getValueAt(index, 0).toString();
 
         try {
             Statement stmt = conn.createStatement();
-            String sqlQuery = " select * from " + tabela + " where id like '" + id
+            sqlQuery = String.format("SELECT * FROM %s.zemlja WHERE ID = " + id,
+                    td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
+
+            /*
+            String sqlQuery = " select * from " + '%s.' + tabela + " where id like '" + id
             + "'";
+             */
             ResultSet rs = stmt.executeQuery(sqlQuery);
 
             while (rs.next()) {
-                mId.setText(rs.getString(1));
-                mSifra.setText(rs.getString(2));
-                mNaziv.setText(rs.getString(3));
-                int mmAktivan = rs.getInt("aktivan");
-                if (mmAktivan == 1) {
+                mId.setText(rs.getString("id"));
+                mSifra.setText(rs.getString("sifra"));
+                mNaziv.setText(rs.getString("naziv"));
+                boolean mmAktivan = rs.getBoolean("aktivan");
+                if (mmAktivan) {
                     mAktivan.setSelected(true);
                 } else {
                     mAktivan.setSelected(false);
                 }
+
                 //                mPrezime.setText(rs.getString(4));
                 //                mImeOca.setText(rs.getString(5));
                 //                mImeMajke.setText(rs.getString(6));
                 //                Date a = rs.getDate(9);
                 //                mDatumRodj.setDate(a);
                 //                try {
-                    //                    mDatumRodj.setDate(rs.getDate(9));
-                    //                } catch (ParseException ex) {
-                    //                    Logger.getLogger(SearchWithJTable.class.getName()).log(Level.SEVERE, null, ex);
-                    //                }
+                //                    mDatumRodj.setDate(rs.getDate(9));
+                //                } catch (ParseException ex) {
+                //                    Logger.getLogger(SearchWithJTable.class.getName()).log(Level.SEVERE, null, ex);
+                //                }
                 //                String ddd = rs.getString("mestorodj");
                 //                mMestoRodj.setSelectedItem(rs.getString("mestorodj"));
                 //                mDrzavljanstvo.setSelectedItem(rs.getString("drzavljanstvo"));
                 //                mNacionalnost.setSelectedItem(rs.getString("nacionalnost"));
                 //                mTelefon.setText(rs.getString("telefon"));
                 //                mEmail.setText(rs.getString("e_mail"));
-
             }
         } catch (Exception ex) {
             //            Logger.getLogger(this.
-                //            class
-                //
-                //        .getName()).log(Level.SEVERE, null, ex);
+            //            class
+            //
+            //        .getName()).log(Level.SEVERE, null, ex);
             Main.track.info("Mouse click on table Exception " + ex);
         }
 
@@ -911,7 +966,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
         lTabela.setText(" " + tabela);
         DefaultTableModel model = (DefaultTableModel) tblSifre.getModel();
         TableColumnModel tcm = tblSifre.getColumnModel();
-         
+
 //        tblSifre.getColumnModel().getColumn(0).setPreferredWidth(10);
 //        tblSifre.getColumnModel().getColumn(1).setPreferredWidth(10);
 //        tblSifre.getColumnModel().getColumn(2).setPreferredWidth(170);
@@ -934,42 +989,98 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
 //        model.setValueAt(mId.getText(), tblSifre.getSelectedRow(), 0);
 //        model.setValueAt(mSifra.getText(), tblSifre.getSelectedRow(), 1);
 //        model.setValueAt(mNaziv.getText(), tblSifre.getSelectedRow(), 2);
+
+        myList.clear();
+        Connection conn = td.getConn();
+
+        ZemljaTable zemlja = new ZemljaTable(conn, td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
+        Postanski_brojTable posta = new Postanski_brojTable(conn, td.getSchema(AsoftTabele.SCHEMA.POSTANSKI_BROJ));
+
+        String sqlQuery = String.format("SELECT * FROM %s.zemlja WHERE aktivan and vazeci",
+                td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
+
+        Statement stmt = null;
+        ResultSet rset = null;
+
         try {
-            Statement stmt = conn.createStatement();
+            stmt = conn.createStatement();
+            rset = stmt.executeQuery(sqlQuery);
+            if (rset.next()) {
+                zemlja.rsToData(rset);
+                myList.add(rset.getString("naziv"));
+            }
+        } catch (SQLException e) {
+            // throw e;
+        } finally {
+            if (rset != null) {
+                try {
+                    rset.close();
+                    rset = null;
+                } catch (Exception e) {
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                    stmt = null;
+                } catch (Exception e) {
+                }
+            }
+        }
+
+        try {
+
+            stmt = conn.createStatement();
             // String[] array = yourString.split(wordSeparator);
 //            String aa = (String) List1.getSelectedValue();
 //            String[] niz = aa.split(AsoftComboBox.COMBOBOX_ITEM_SEPARATOR);
 //            LOWER(something)
-            String searchQuery = "SELECT * FROM " + tabela + " WHERE "
-                    + "LOWER(CONCAT(`id`, `sifra`, `naziv`)) LIKE LOWER('%" + ValToSearch + "%') order by id";
 
+//            String searchQuery = String.format("SELECT * FROM %s." + tabela + " WHERE "
+//                    + "LOWER(CONCAT(`id`, `sifra`, `naziv`)) LIKE LOWER('%" + ValToSearch + "%') order by id"
+//                    + "LOWER(CONCAT(id, sifra, naziv)) LIKE LOWER('%" + ValToSearch + "%') order by id"                    
+//                    ,
+//                    td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
+            ValToSearch = "%" + ValToSearch + "%";
+            String searchQuery = String.format("SELECT * FROM %s." + tabela + " WHERE "
+                    // + "LOWER(CONCAT(id, sifra, naziv)) LIKE LOWER('%" + ValToSearch + "%') order by id"
+                    + "LOWER(CONCAT(id, sifra, naziv)) LIKE LOWER('%s') order by id",
+                     td.getSchema(AsoftTabele.SCHEMA.ZEMLJA), ValToSearch);
+
+            System.out.print(searchQuery);
+            /*            
+        String sqlQuery1 = String.format("SELECT * FROM %s.zemlja WHERE aktivan and vazeci",
+                td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));                    
+             */
 //            String searchQuery = "SELECT * FROM " + tabela + " WHERE "
 //                    + "CONCAT(`id`, `sifra`, `naziv`) LIKE '%" + ValToSearch + "%' order by id";
             ResultSet rs = stmt.executeQuery(searchQuery);
             rekordaUslektu = 0;
             while (rs.next()) {
-                mId.setText(rs.getString(1));
-                mSifra.setText(rs.getString(2));
-                mNaziv.setText(rs.getString(3));
+                mId.setText(rs.getString("id"));
+                mSifra.setText(rs.getString("sifra"));
+                mNaziv.setText(rs.getString("naziv"));
+                boolean mmAktivan = rs.getBoolean("aktivan");
 //                    int cetvrti = rs.getInt(5);
-                boolean mmAktivan = (rs.getInt(5) == 1) ? true : false;
+                // boolean mmAktivan = (rs.getInt(5) == 1) ? true : false;
 
                 mAktivan.setSelected(mmAktivan);
 //                    if (rs.getInt(4))
                 model.addRow(new Object[]{mId.getText(), mSifra.getText(), mNaziv.getText(), mmAktivan, rekordaUslektu});
                 rekordaUslektu++;
             }
+            /*
             mId.setText("");
             mSifra.setText("");
             mNaziv.setText("");
             mAktivan.setSelected(true);
-
+             */
         } catch (SQLException ex) {
-              Main.track.info("punjenjeJtableIPrikazModelaSaUslovom " + tabela + " SQLException " + ex);
+            Main.track.info("punjenjeJtableIPrikazModelaSaUslovom " + tabela + " SQLException " + ex);
         }
 
     }
-    
+
     private ArrayList<model.MaticniPodaci> ListSifre(String ValToSearch) {
         ArrayList<model.MaticniPodaci> usersList = new ArrayList<model.MaticniPodaci>();
         Statement st;
@@ -998,6 +1109,6 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
         } else {
             return 0;
         }
-    }    
+    }
 
 }
