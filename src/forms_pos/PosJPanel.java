@@ -22,6 +22,9 @@ public class PosJPanel extends javax.swing.JPanel {
      */
     public PosJPanel() {
         initComponents();
+        /*
+        */
+       
     }
 
     /**

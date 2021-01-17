@@ -3338,3 +3338,7 @@ INFO    2021-01-17 13:00:59,753 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje L
   Position: 15
 INFO    2021-01-17 13:00:59,754 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
   Position: 15
+INFO    2021-01-17 21:09:19,126 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-17 21:09:19,127 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
