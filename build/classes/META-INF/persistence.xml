@@ -14,6 +14,10 @@
     <class>model.Akcije</class>
     <class>model.Partneri</class>
     <class>model.PartneriRacuniModel</class>
+    <class>forms_pos.MpnNivelacijaCenaStavka</class>
+    <class>forms_pos.MprRazduzenjeStavka</class>
+    <class>forms_pos.MprRazduzenje</class>
+    <class>forms_pos.MpnNivelacijaCena</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/personal?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.password" value=""/>

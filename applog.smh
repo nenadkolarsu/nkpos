@@ -3247,3 +3247,94 @@ INFO    2021-01-15 14:55:46,671 [AWT-EventQueue-0] forms_pos.Main  - this is a i
 INFO    2021-01-15 14:55:46,894 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
 INFO    2021-01-15 14:55:47,390 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
 INFO    2021-01-15 14:55:47,614 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: ERROR: current transaction is aborted, commands ignored until end of transaction block
+INFO    2021-01-16 14:40:29,478 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : f
+INFO    2021-01-16 14:40:29,685 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:29,884 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:30,276 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:30,494 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:30,710 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:30,916 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : f
+INFO    2021-01-16 14:40:31,124 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:31,333 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:31,533 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:31,766 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:31,971 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : f
+INFO    2021-01-16 14:40:32,173 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:32,396 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:32,590 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:32,813 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:33,012 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:33,246 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:34,152 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:34,154 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:34,523 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:34,524 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:34,756 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:34,757 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:35,253 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:35,254 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:36,429 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:36,429 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:36,432 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:40,302 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:40,302 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:40:46,077 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:46,653 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:46,877 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:47,101 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:47,333 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:47,534 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:47,742 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:47,957 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:48,197 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:48,406 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:48,605 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:48,836 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:49,045 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : f
+INFO    2021-01-16 14:40:49,277 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:49,493 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:49,702 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:49,900 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:50,123 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:50,357 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:50,813 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:51,036 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:51,253 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:51,462 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:51,668 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:52,446 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:52,676 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:52,923 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:40:53,148 [AWT-EventQueue-0] forms_pos.Main  - this is a information log messageorg.postgresql.util.PSQLException: Bad value for type int : t
+INFO    2021-01-16 14:44:04,521 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-16 14:44:04,522 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-17 10:54:05,273 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-17 10:54:05,275 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-17 12:42:37,437 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-17 12:42:37,438 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-17 12:46:15,380 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-17 12:46:15,383 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-17 13:00:59,753 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15
+INFO    2021-01-17 13:00:59,754 [AWT-EventQueue-0] forms_pos.Main  - Kreiranje ListSifre org.postgresql.util.PSQLException: ERROR: relation "zemlja" does not exist
+  Position: 15

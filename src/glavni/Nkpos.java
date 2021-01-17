@@ -65,7 +65,7 @@ public class Nkpos extends javax.swing.JFrame {
 
     public Nkpos() {
 
-        
+                initComponents();
     }
     
     public Nkpos(AsoftTaskData td) {
@@ -151,7 +151,6 @@ public class Nkpos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jSplitPane1 = new javax.swing.JSplitPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
         jLabel2 = new javax.swing.JLabel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -182,8 +181,6 @@ public class Nkpos extends javax.swing.JFrame {
         jSplitPane1.setDividerSize(8);
         jSplitPane1.setAutoscrolls(true);
 
-        jTabbedPane2.addTab("tab2", jScrollPane3);
-
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pictures/Naslovna1636x1089-44a.jpg"))); // NOI18N
         jLabel2.setToolTipText("Best POS solution in Serbia");
@@ -194,7 +191,7 @@ public class Nkpos extends javax.swing.JFrame {
         jLabel2.setMinimumSize(new java.awt.Dimension(1600, 513));
         jLabel2.setName(""); // NOI18N
         jLabel2.setPreferredSize(new java.awt.Dimension(1570, 413));
-        jTabbedPane2.addTab("tab1", jLabel2);
+        jTabbedPane2.addTab("Welcome", jLabel2);
 
         jSplitPane1.setRightComponent(jTabbedPane2);
 
@@ -454,7 +451,6 @@ public class Nkpos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;

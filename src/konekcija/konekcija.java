@@ -59,6 +59,11 @@ public class konekcija {
     String password = "";
     String host = "";
     String DRIVER_MANAGER_CONNECTION_STRING = "jdbc:postgresql://10.11.124.202:5432/asoft?user=vlada&password=vladakk";
+   //  Database credentials
+      static final String DB_URL = "jdbc:postgresql://127.0.0.1:5432/asoft";
+      static final String USER = "vlada";
+      static final String PASS = "vladakk";
+   //    
     static Log log = LogFactory.getLog("asoftsyncpgdiff");
     final static int SUCCESSFUL_EXIT = 0;
     final static int UNSUCCESSFUL_EXIT = 1;
@@ -67,7 +72,37 @@ public class konekcija {
     static String subject_unsuccessful;    
 
     public Connection konekcija() {
-
+        
+        
+	try {
+		Class.forName("org.postgresql.Driver");
+	} catch (ClassNotFoundException e) {
+		System.out.println("PostgreSQL JDBC Driver is not found. Include it in your library path ");
+		e.printStackTrace();
+		// return;
+	}
+ 
+	System.out.println("PostgreSQL JDBC Driver successfully connected");
+	Connection connection = null;
+ 
+	try {
+		conn = DriverManager
+		.getConnection(DB_URL, USER, PASS);
+ 
+	} catch (SQLException e) {
+		System.out.println("Connection Failed");
+		e.printStackTrace();
+		// return;
+	}
+ 
+	if (conn != null) {
+		System.out.println("You successfully connected to database now");
+	} else {
+		System.out.println("Failed to make connection to database");
+	}        
+        
+        
+        /*
         File FILENAME = new File("c:\\gui\\reports\\boot.txt");
         if (FILENAME.exists()) {
             try {
@@ -91,8 +126,12 @@ public class konekcija {
 
         } else {
 
-            try {                
-                conn = DriverManager.getConnection("jdbc:postgresql://10.11.124.202:5432/asoft?user=vlada&password=vladakk");
+            try {         
+//      static final String DB_URL = "jdbc:postgresql://127.0.0.1:5432/asoft";
+//      static final String USER = "vlada";
+//      static final String PASS = "vladakk";                
+              //  conn = DriverManager.getConnection("jdbc:postgresql://10.11.124.202:5432/asoft?user=vlada&password=vladakk");
+                conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/asoft?user=vlada&password=vladakk");
                 conn.setAutoCommit(false);
             } catch (SQLException ex) {
                 log.error(ex.toString());
@@ -173,5 +212,7 @@ public class konekcija {
         }
         return content;
     }
-
+*/
+        return conn;
+    }
 }

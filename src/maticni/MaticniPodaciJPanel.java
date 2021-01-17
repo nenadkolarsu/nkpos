@@ -302,6 +302,8 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
         }
         );
 
+        FirstBtn.doClick();
+                
     }
 
 //    public MaticniPodaciJPanel(Glavni parent) {
@@ -330,6 +332,8 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
         recordLbl = new javax.swing.JLabel();
         NextBtn = new javax.swing.JButton();
         LastBtn = new javax.swing.JButton();
+        prikazAktivnih = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lTabela = new javax.swing.JLabel();
         mAktivan = new javax.swing.JCheckBox();
@@ -432,6 +436,14 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
             }
         });
 
+        prikazAktivnih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prikazAktivnihActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Prikaz neaktivnih:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -441,7 +453,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                     .addComponent(UnosBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(IzmenaBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -449,7 +461,10 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                         .addGap(12, 12, 12)
                         .addComponent(PregledBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(IzlazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(IzlazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(filterTxt))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(FirstBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)
@@ -460,9 +475,13 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                         .addComponent(NextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LastBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(filterTxt))
-                .addContainerGap())
+                        .addContainerGap(44, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(prikazAktivnih)
+                        .addGap(37, 37, 37))))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {BrisanjeBtn, IzlazBtn, IzmenaBtn, PregledBtn, UnosBtn});
@@ -484,9 +503,12 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                         .addComponent(IzlazBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(PregledBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(filterTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(filterTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel6))
+                    .addComponent(prikazAktivnih))
                 .addContainerGap())
         );
 
@@ -626,7 +648,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(iMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -639,7 +661,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -929,6 +951,11 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
         // kraj ovo punjenje nevraca kada je filter ukljucen
     }//GEN-LAST:event_tblSifreMouseClicked
 
+    private void prikazAktivnihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prikazAktivnihActionPerformed
+        // TODO add your handling code here:
+        punjenjeJtableIPrikazModelaSaUslovom(filterTxt.getText());
+    }//GEN-LAST:event_prikazAktivnihActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BrisanjeBtn;
@@ -947,6 +974,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -957,6 +985,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField mId;
     private javax.swing.JTextField mNaziv;
     private javax.swing.JTextField mSifra;
+    private javax.swing.JCheckBox prikazAktivnih;
     private javax.swing.JLabel recordLbl;
     private javax.swing.JTable tblSifre;
     // End of variables declaration//GEN-END:variables
@@ -996,38 +1025,10 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
         ZemljaTable zemlja = new ZemljaTable(conn, td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
         Postanski_brojTable posta = new Postanski_brojTable(conn, td.getSchema(AsoftTabele.SCHEMA.POSTANSKI_BROJ));
 
-        String sqlQuery = String.format("SELECT * FROM %s.zemlja WHERE aktivan and vazeci",
-                td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
-
+        String aktivan="false";
+        ResultSet rs = null;
         Statement stmt = null;
-        ResultSet rset = null;
-
-        try {
-            stmt = conn.createStatement();
-            rset = stmt.executeQuery(sqlQuery);
-            if (rset.next()) {
-                zemlja.rsToData(rset);
-                myList.add(rset.getString("naziv"));
-            }
-        } catch (SQLException e) {
-            // throw e;
-        } finally {
-            if (rset != null) {
-                try {
-                    rset.close();
-                    rset = null;
-                } catch (Exception e) {
-                }
-            }
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                    stmt = null;
-                } catch (Exception e) {
-                }
-            }
-        }
-
+                
         try {
 
             stmt = conn.createStatement();
@@ -1041,11 +1042,21 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
 //                    + "LOWER(CONCAT(id, sifra, naziv)) LIKE LOWER('%" + ValToSearch + "%') order by id"                    
 //                    ,
 //                    td.getSchema(AsoftTabele.SCHEMA.ZEMLJA));
+
+        aktivan="false";
+        
+        if (prikazAktivnih.isSelected()) {
+                aktivan="true";
+            } else {
+                aktivan="false";
+            }
+        
+
             ValToSearch = "%" + ValToSearch + "%";
             String searchQuery = String.format("SELECT * FROM %s." + tabela + " WHERE "
                     // + "LOWER(CONCAT(id, sifra, naziv)) LIKE LOWER('%" + ValToSearch + "%') order by id"
-                    + "LOWER(CONCAT(id, sifra, naziv)) LIKE LOWER('%s') order by id",
-                     td.getSchema(AsoftTabele.SCHEMA.ZEMLJA), ValToSearch);
+                    + "LOWER(CONCAT(id, sifra, naziv)) LIKE LOWER('%s') and aktivan = '%s' order by id",
+                     td.getSchema(AsoftTabele.SCHEMA.ZEMLJA), ValToSearch, aktivan);
 
             System.out.print(searchQuery);
             /*            
@@ -1054,7 +1065,7 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
              */
 //            String searchQuery = "SELECT * FROM " + tabela + " WHERE "
 //                    + "CONCAT(`id`, `sifra`, `naziv`) LIKE '%" + ValToSearch + "%' order by id";
-            ResultSet rs = stmt.executeQuery(searchQuery);
+           rs = stmt.executeQuery(searchQuery);
             rekordaUslektu = 0;
             while (rs.next()) {
                 mId.setText(rs.getString("id"));
@@ -1077,6 +1088,22 @@ public class MaticniPodaciJPanel extends javax.swing.JPanel {
              */
         } catch (SQLException ex) {
             Main.track.info("punjenjeJtableIPrikazModelaSaUslovom " + tabela + " SQLException " + ex);
+        } 
+        finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                    rs = null;
+                } catch (Exception e) {
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                    stmt = null;
+                } catch (Exception e) {
+                }
+            }
         }
 
     }

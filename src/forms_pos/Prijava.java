@@ -426,7 +426,7 @@ public class Prijava extends javax.swing.JFrame {
     }
 
     void makeTD() throws Exception {
-        String curfirma = "Pionir 2021";
+        String curfirma = "Pionir 2019";
         AsoftTabele asofttabele;
         AsoftServerGroupInfo sgi;
         asofttabele = new AsoftTabele(conn, curfirma, null);
